@@ -18,7 +18,27 @@ FOUNDATION_EXPORT const unsigned char FindFilesByTagVersionString[];
 
 
 @interface FindFilesByTag : NSObject
+{
+    
+}
 
-+findFilesIn:(NSURL*)directory withTag:(NSString*)tag;
+/**
+TODO expand the funtionality of this framework in the following ways
+ -all tag searches are currently case sensitive. add the option for case insensitive searches
+ -add more complex search abilites like:
+   -search for only files that are tagged with A and B
+   -search for files that are tagged with either A or B
+   -regex searching
+**/
+
+//TODO this is horribly inneficient. figure out where it can be optimized
+
+-(NSArray*)findFilesIn:(NSURL*)directory withTag:(NSString*)tag;
++(NSArray*)getTagsForFile:(NSURL*)file;
++(BOOL)file:(NSURL*)file isTaggedWith:(NSString*)tag;
+
+-(id)init;
+-(id)initWithOptions:(NSDictionary*)options;
+
 
 @end

@@ -8,15 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "FindFilesByTag.h"
 
 @interface FindFilesByTagTests : XCTestCase
-
+{
+    FindFilesByTag* fileFinder;
+}
 @end
 
 @implementation FindFilesByTagTests
 
 - (void)setUp {
     [super setUp];
+    fileFinder = [[FindFilesByTag alloc]init];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -28,6 +32,14 @@
 - (void)testExample {
     // This is an example of a functional test case.
     XCTAssert(YES, @"Pass");
+}
+
+-(void)testFindFilesWithTag{
+    NSURL* dir = [NSURL fileURLWithPath:@"/Users/cutmancometh/Pictures/Girls"];
+    
+    NSArray* files = [fileFinder findFilesIn:dir withTag:@"Test"];
+    
+    return;
 }
 
 - (void)testPerformanceExample {
