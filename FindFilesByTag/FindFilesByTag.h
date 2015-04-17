@@ -17,3 +17,8 @@ FOUNDATION_EXPORT const unsigned char FindFilesByTagVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <FindFilesByTag/PublicHeader.h>
 
 
+@interface FindFilesByTag : NSObject
+
++findFilesIn:(NSURL*)directory withTag:(NSString*)tag;
+
+@end
